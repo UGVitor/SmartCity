@@ -20,3 +20,26 @@ closeBtn.addEventListener("click", function () {
 });
 // set year
 date.innerHTML = new Date().getFullYear();
+
+
+function addComment() {
+  var name = document.getElementById('comment-name').value;
+  var commentText = document.getElementById('comment-text').value;
+
+  if (name && commentText) {
+    var commentContainer = document.getElementById('comments-container');
+
+    var commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+
+    var commentContent = '<strong>' + name + ':</strong> ' + commentText;
+    commentDiv.innerHTML = commentContent;
+
+    commentContainer.appendChild(commentDiv);
+
+    // Limpar o formulário
+    document.getElementById('new-comment-form').reset();
+  } else {
+    alert('Por favor, preencha todos os campos do formulário.');
+  }
+}
